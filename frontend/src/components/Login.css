@@ -1,0 +1,45 @@
+/* Animated Green Gradient Background */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #d1fae5, #b2f5ea, #99f6e4, #d1fae5);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Enhanced Gradient Animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 25% More Floating Effect */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-100.5px); }  /* Increased from -10px to -12.5px */
+    100% { transform: translateY(0px); }
+}
+
+/* Login Card with More Floating */
+.login-card {
+    width: 400px;
+    animation: float 5s ease-in-out infinite;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Hover Effect */
+.btn-primary {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    border: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #00f2fe, #4facfe);
+}
