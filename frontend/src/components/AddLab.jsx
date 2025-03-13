@@ -69,6 +69,7 @@ const AddLab = () => {
         >
           ⬅ Back to Dashboard
         </button> */}
+        
       </div>
     </div>
     </GeneralAdminLayout>
