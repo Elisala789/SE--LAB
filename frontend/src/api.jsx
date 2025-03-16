@@ -21,6 +21,11 @@ export const addLab = async (labData) => {
     const formData = new FormData();
     formData.append("name", labData.name);
     formData.append("servers", labData.servers);
+    formData.append("location", labData.location);
+    formData.append("operating_hours", labData.operating_hours);
+    formData.append("ram", labData.ram);
+    formData.append("processors", labData.processors);
+    
 
     const response = await axios.post(`${BASE_URL}/api/auth/labs`, formData, {
       headers: { "Content-Type": "multipart/form-data" },
