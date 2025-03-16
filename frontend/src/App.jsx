@@ -11,6 +11,8 @@ import AddLab from "./components/AddLab";
 import ManageLabs from "./components/ManageLabs";
 import AddLabAdmin from "./components/AddLabAdmin";
 import ManageLabAdmins from "./components/ManageLabAdmins";
+import ViewLabs from "./components/ViewLabs";
+import RequestSpace from "./components/RequestSpace";
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
 
         {/* Dashboard Routes */}
         <Route path="/student-dashboard" element={<Dashboard1 />} />
+        <Route path="/student-dashboard/view-all-labs" element={<ViewLabs />} />
+        <Route path="/student-dashboard/request-space" element={<RequestSpace />} />
         <Route path="/faculty-dashboard" element={<Dashboard2 />} />
         <Route path="/generaladmin-dashboard" element={<Dashboard3 />} />
         <Route path="/researcher-dashboard" element={<Dashboard4 />} />

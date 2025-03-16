@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import GeneralAdminLayout from "./GeneralAdminLayout"; 
 
 const AddLab = () => {
-  const [labData, setLabData] = useState({ name: "", servers: "" });
+  const [labData, setLabData] = useState({ name: "", servers: "",location:"",operating_hours:"",ram:"",processors:"", });
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -25,8 +25,8 @@ const AddLab = () => {
 
   return (
     <GeneralAdminLayout>
-    <div className="flex items-center justify-center min-h-screen bg-green-100">
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-sky-100 to-sky-300">
+      <div className="bg-gradient-to-br from-sky-100 to-sky-300 shadow-lg rounded-lg p-8 max-w-md w-full">
         <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">Add New Lab</h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -54,6 +54,55 @@ const AddLab = () => {
               className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
+          <div>
+            <label className="block text-gray-600 text-sm font-medium">Location</label>
+            <input
+              type="text"
+              name="location"
+              placeholder="Enter location"
+              value={labData.location}
+              onChange={handleChange}
+              required
+              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-600 text-sm font-medium">Operating hours</label>
+            <input
+              type="text"
+              name="operating_hours"
+              placeholder="Enter time period"
+              value={labData.operating_hours}
+              onChange={handleChange}
+              required
+              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-600 text-sm font-medium">Ram in Gb</label>
+            <input
+              type="number"
+              name="ram"
+              placeholder="Enter ram"
+              value={labData.ram}
+              onChange={handleChange}
+              required
+              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-600 text-sm font-medium">Processors</label>
+            <input
+              type="number"
+              name="processors"
+              placeholder="Enter number of processors"
+              value={labData.processors}
+              onChange={handleChange}
+              required
+              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
           <button
             type="submit"
             className="w-full bg-gradient-to-r from-blue-400 via-white to-green-600 text-gray-900 py-2 rounded-lg font-semibold text-lg shadow-lg transform transition hover:scale-105 hover:from-green-500 via-white hover:to-blue-700 duration-300"

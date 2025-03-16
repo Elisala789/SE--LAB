@@ -15,6 +15,7 @@ const ManageLabAdmins = () => {
       try {
         const response = await axios.get("http://localhost:8081/api/auth/lab-admins");
         setLabAdmins(response.data);
+        console.log(response.data);
       } catch (err) {
         console.error("Error fetching lab admins:", err);
         setError("Failed to load lab admins.");
@@ -30,7 +31,20 @@ const ManageLabAdmins = () => {
     setEditingAdmin(admin);
     setFormData({ name: admin.name, email: admin.email });
   };
-
+  const handleDeleteClick = async (id) => {
+    const confirmDelete = window.confirm(`Are you sure you want to delete this admin?`);
+    if (!confirmDelete) return;
+  
+    try {
+      await axios.delete(`http://localhost:8081/api/auth/lab-admins/delete/${id}`);
+      setLabAdmins((prevAdmins) => prevAdmins.filter((lab) => lab.id !== id));
+    } catch (err) {
+      console.error("Error deleting lab admin:", err);
+      alert("Failed to delete lab admin. Please try again.");
+    }
+  };
+  
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -77,13 +91,37 @@ const ManageLabAdmins = () => {
                   <strong className="text-gray-700">Email:</strong> {admin.email}
                 </p>
                 <p className="text-gray-600 mt-1">
-                  <strong className="text-gray-700">Lab ID:</strong> {admin.adminId}
+                  <strong className="text-gray-700">Lab Name:</strong> {admin.lab.name}
+                </p>
+                <p className="text-gray-600 mt-1">
+                  <strong className="text-gray-700">Lab id:</strong> {admin.lab.id}
+                </p>
+                <p className="text-gray-600 mt-1">
+                  <strong className="text-gray-700">Servers:</strong> {admin.lab.servers}
+                </p>
+                <p className="text-gray-600 mt-1">
+                  <strong className="text-gray-700">Lab Location:</strong> {admin.lab.location}
+                </p>
+                <p className="text-gray-600 mt-1">
+                  <strong className="text-gray-700">Lab Operating hours:</strong> {admin.lab.operating_hours}
+                </p>
+                <p className="text-gray-600 mt-1">
+                  <strong className="text-gray-700">Ram:</strong> {admin.lab.ram}
+                </p>
+                <p className="text-gray-600 mt-1">
+                  <strong className="text-gray-700">Processors:</strong> {admin.lab.processors}
                 </p>
                 <button
                   className="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-all duration-300"
                   onClick={() => handleEditClick(admin)}
                 >
                   Edit
+                </button>
+                <button
+                  className="mt-4 mx-11 bg-red-600 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded transition-all duration-300"
+                  onClick={() => handleDeleteClick(admin.id)}
+                >
+                  Delete
                 </button>
               </div>
             ))}
@@ -113,6 +151,7 @@ const ManageLabAdmins = () => {
               onChange={handleChange}
               className="w-full p-2 border rounded mt-1"
             />
+            
 
             <div className="flex justify-end mt-4 space-x-3">
               <button

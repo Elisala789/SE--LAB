@@ -1,83 +1,64 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { 
-  Plus, Settings, Users, Building2, LogOut, Home, User 
+import {
+  Plus,
+  Settings,
+  Users,
+  Building2,
+  LogOut,
+  Home,
+  User
 } from "lucide-react";
+
+const SidebarLink = ({ to, icon: Icon, text }) => (
+  <Link
+    to={to}
+    className="flex items-center space-x-3 px-5 py-3 rounded-xl transition duration-300 hover:bg-white hover:text-gray-900 shadow-md"
+  >
+    <Icon size={22} className="text-gray-300 group-hover:text-gray-700" />
+    <span className="text-lg font-medium">{text}</span>
+  </Link>
+);
+
+const DashboardCard = ({ to, icon: Icon, iconColor, text }) => (
+  <Link to={to} className="group">
+    <div className="p-6 rounded-2xl bg-white shadow-lg flex flex-col items-center transition duration-300 transform hover:scale-105 hover:shadow-xl">
+      <Icon className={`text-${iconColor}-600`} size={40} />
+      <p className="mt-4 text-lg font-semibold text-gray-700 group-hover:text-gray-900">{text}</p>
+    </div>
+  </Link>
+);
 
 const GeneralAdmin = () => {
   return (
-    <div className="flex min-h-screen bg-green-100">
-      
+    <div className="flex min-h-screen bg-gradient-to-br from-gray-100 to-gray-300">
       {/* Sidebar */}
-      <aside className="w-64 bg-gray-900 text-white shadow-lg p-6">
-        <h2 className="text-2xl font-bold flex items-center mb-6">
-          <User className="mr-2" size={28} /> General Admin
+      <aside className="w-72 p-6 bg-gray-900 text-white shadow-2xl rounded-r-3xl flex flex-col space-y-6">
+        <h2 className="text-2xl font-bold flex items-center">
+          <User className="mr-3" size={28} /> General Admin
         </h2>
-
         <nav className="space-y-4">
-          <Link to="/generaladmin-dashboard" className="flex items-center space-x-2 hover:text-green-400 transition">
-            <Home size={20} /> <span>Dashboard</span>
-          </Link>
-          <Link to="/generaladmin-dashboard/add-lab" className="flex items-center space-x-2 hover:text-green-400 transition">
-            <Building2 size={20} /> <span>Add Lab</span>
-          </Link>
-          <Link to="/generaladmin-dashboard/manage-labs" className="flex items-center space-x-2 hover:text-green-400 transition">
-            <Settings size={20} /> <span>Manage Labs</span>
-          </Link>
-          <Link to="/generaladmin-dashboard/add-lab-admin" className="flex items-center space-x-2 hover:text-purple-600 transition">
-            <Users size={20} /> <span>Add Lab Admin</span>
-          </Link>
-          <Link to="/generaladmin-dashboard/manage-lab-admins" className="flex items-center space-x-2 hover:text-red-400 transition">
-            <Plus size={20} /> <span>Manage Lab Admins</span>
-          </Link>
-          <Link to="/" className="flex items-center space-x-2 text-red-500 hover:text-red-400 transition">
-            <LogOut size={20} /> <span>Logout</span>
-          </Link>
+          <SidebarLink to="/generaladmin-dashboard" icon={Home} text="Dashboard" />
+          <SidebarLink to="/generaladmin-dashboard/add-lab" icon={Building2} text="Add Lab" />
+          <SidebarLink to="/generaladmin-dashboard/manage-labs" icon={Settings} text="Manage Labs" />
+          <SidebarLink to="/generaladmin-dashboard/add-lab-admin" icon={Users} text="Add Lab Admin" />
+          <SidebarLink to="/generaladmin-dashboard/manage-lab-admins" icon={Plus} text="Manage Lab Admins" />
+          <SidebarLink to="/" icon={LogOut} text="Logout" className="text-red-500" />
         </nav>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">Dashboard</h1>
+      <main className="flex-1 p-10">
+        <h1 className="text-4xl font-bold text-gray-800 mb-8">Dashboard</h1>
 
         {/* Dashboard Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          {/* Add Lab */}
-          <Link to="/generaladmin-dashboard/add-lab" className="group">
-            <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center hover:shadow-xl transition">
-              <Building2 className="text-blue-600 group-hover:text-blue-800" size={40} />
-              <p className="mt-4 text-lg font-semibold text-gray-700 group-hover:text-blue-900">Add Lab</p>
-            </div>
-          </Link>
-
-          {/* Manage Labs */}
-          <Link to="/generaladmin-dashboard/manage-labs" className="group">
-            <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center hover:shadow-xl transition">
-              <Settings className="text-green-600 group-hover:text-green-800" size={40} />
-              <p className="mt-4 text-lg font-semibold text-gray-700 group-hover:text-green-900">Manage Labs</p>
-            </div>
-          </Link>
-
-          {/* Add Lab Admin */}
-          <Link to="/generaladmin-dashboard/add-lab-admin" className="group">
-            <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center hover:shadow-xl transition">
-              <Users className="text-purple-600 group-hover:text-purple-800" size={40} />
-              <p className="mt-4 text-lg font-semibold text-gray-700 group-hover:text-purple-900">Add Lab Admin</p>
-            </div>
-          </Link>
-
-          {/* Manage Lab Admins */}
-          <Link to="/generaladmin-dashboard/manage-lab-admins" className="group">
-            <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center hover:shadow-xl transition">
-              <Plus className="text-red-600 group-hover:text-red-800" size={40} />
-              <p className="mt-4 text-lg font-semibold text-gray-700 group-hover:text-red-900">Manage Lab Admins</p>
-            </div>
-          </Link>
-
+          <DashboardCard to="/generaladmin-dashboard/add-lab" icon={Building2} iconColor="blue" text="Add Lab" />
+          <DashboardCard to="/generaladmin-dashboard/manage-labs" icon={Settings} iconColor="green" text="Manage Labs" />
+          <DashboardCard to="/generaladmin-dashboard/add-lab-admin" icon={Users} iconColor="purple" text="Add Lab Admin" />
+          <DashboardCard to="/generaladmin-dashboard/manage-lab-admins" icon={Plus} iconColor="red" text="Manage Lab Admins" />
         </div>
       </main>
-      
     </div>
   );
 };
