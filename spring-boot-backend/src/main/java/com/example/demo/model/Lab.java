@@ -65,4 +65,8 @@ public class Lab {
 	}
     
     
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> branch 'master' of https://github.com/Elisala789/SE--LAB.git
