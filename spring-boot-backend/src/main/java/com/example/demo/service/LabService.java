@@ -19,10 +19,14 @@ public class LabService {
         return labRepository.findAll();
     }
 
-    public Lab addLab(String name, int servers) {
+    public Lab addLab(String name, int servers,String location,String operating_hours,int ram,int processors) {
         Lab lab = new Lab();
         lab.setName(name);
         lab.setServers(servers);
+        lab.setLocation(location);
+        lab.setOperating_hours(operating_hours);
+        lab.setRam(ram);
+        lab.setProcessors(processors);
         return labRepository.save(lab);
     }
 
