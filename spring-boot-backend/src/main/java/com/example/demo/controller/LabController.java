@@ -24,8 +24,8 @@ public class LabController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addLab(@RequestParam String name, @RequestParam int servers) {
-        Lab lab = labService.addLab(name, servers);
+    public ResponseEntity<?> addLab(@RequestParam String name, @RequestParam int servers,@RequestParam String location,@RequestParam String operating_hours,@RequestParam int ram,@RequestParam int processors) {
+        Lab lab = labService.addLab(name, servers,location,operating_hours,ram,processors);
         return ResponseEntity.ok(lab);
     }
 // hello
@@ -46,6 +46,10 @@ public class LabController {
             Lab lab = existingLab.get();
             lab.setName(updatedLab.getName());
             lab.setServers(updatedLab.getServers());
+            lab.setLocation(updatedLab.getLocation());
+            lab.setOperating_hours(updatedLab.getOperating_hours());
+            lab.setRam(updatedLab.getRam());
+            lab.setProcessors(updatedLab.getProcessors());
             labService.saveLab(lab);
             return ResponseEntity.ok(lab);
         } else {
