@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="h-screen flex flex-col bg-[#F1F5F9]">
+    <div className="min-h-screen flex flex-col bg-[#F1F5F9]">
       {/* Navbar */}
       <nav className="bg-[#8facdb] text-[#0b0c0c] p-4 flex items-center justify-between shadow-md">
         <h1 className="text-2xl font-semibold">Student Dashboard</h1>
@@ -32,8 +32,14 @@ const Layout = ({ children }) => {
           >
             <FiBookmark /> Request Space
           </button>
+          <button
+            onClick={() => navigate("/student-dashboard/view-my-bookings")}
+            className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition"
+          >
+            <FiCalendar /> View My Bookings
+          </button>
           
-          <NavItem to="/my-bookings" icon={<FiCalendar />} label="View My Bookings" />
+          
           <NavItem to="/notifications" icon={<FiBell />} label="Notifications" />
           <button
             onClick={() => navigate("/")}
@@ -64,7 +70,7 @@ const Layout = ({ children }) => {
       )}
 
       {/* Main Content */}
-      <div className="flex-grow">{children}</div>
+      <div className="flex-grow min-h-screen">{children}</div>
     </div>
   );
 };

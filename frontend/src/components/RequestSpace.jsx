@@ -1,10 +1,25 @@
+
 import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const RequestSpace = () => {
   const [labs, setLabs] = useState([]);
-  const [selectedLab, setSelectedLab] = useState(""); // Stores selected lab ID
+  const [selectedLab, setSelectedLab] = useState("");
+  const [servers, setServers] = useState([]);
+  const [freeServers, setFreeServers] = useState(0);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    rollNumber: "",
+    labName: "",
+    labId: "",
+    serversRequired: "",
+    processorsRequired: "",
+    ramRequired: "",
+  });
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchLabs = async () => {
@@ -18,90 +33,139 @@ const RequestSpace = () => {
     fetchLabs();
   }, []);
 
+  useEffect(() => {
+    const fetchServers = async () => {
+      try {
+        const response = await axios.get("http://localhost:8081/api/auth/servers");
+        setServers(response.data);
+      } catch (err) {
+        console.error("Failed to fetch servers:", err);
+      }
+    };
+    fetchServers();
+  }, []);
+
+  useEffect(() => {
+    if (selectedLab) {
+      const selectedLabObj = labs.find((lab) => lab.id === parseInt(selectedLab));
+      setFormData((prev) => ({
+        ...prev,
+        labName: selectedLabObj ? selectedLabObj.name : "",
+        labId: selectedLab,
+      }));
+
+      const filteredServers = servers.filter((server) => server.lab.id === parseInt(selectedLab));
+      const totalFreeServers = filteredServers.reduce((sum, server) => sum + server.free, 0);
+      setFreeServers(totalFreeServers);
+    } else {
+      setFreeServers(0);
+      setFormData((prev) => ({
+        ...prev,
+        labName: "",
+        labId: "",
+      }));
+    }
+  }, [selectedLab, labs, servers]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:8081/api/auth/requests", formData);
+      alert("Request submitted successfully!");
+      navigate("/student-dashboard/view-my-bookings");
+      setFormData({
+        name: "",
+        email: "",
+        rollNumber: "",
+        labName: "",
+        labId: "",
+        serversRequired: "",
+        processorsRequired: "",
+        ramRequired: "",
+      });
+      setSelectedLab("");
+    } catch (error) {
+      console.error("Error submitting request:", error);
+      alert("Failed to submit request. Please try again.");
+    }
+  };
+
   return (
     <Layout>
-      <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-8">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+      <div className="max-w-5xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-10">
+        <h2 className="text-4xl font-bold text-gray-800 mb-8 text-center">
           Request Lab Space & Servers
         </h2>
 
-        <form className="space-y-4">
-          {/* Lab Name Dropdown */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">
-              Lab Name
-            </label>
-            <select
-              name="labName"
-              value={selectedLab}
-              onChange={(e) => setSelectedLab(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            >
-              <option value="">Select a Lab</option>
-              {labs.length > 0 ? (
-                labs.map((lab) => (
-                  <option key={lab.id} value={lab.id}>
-                    {lab.name}
-                  </option>
-                ))
-              ) : (
-                <option disabled>Loading labs...</option>
-              )}
-            </select>
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <div className="grid grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">Name</label>
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Enter your name" className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" required />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">Email</label>
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" required />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">Roll Number</label>
+                <input type="text" name="rollNumber" value={formData.rollNumber} onChange={handleChange} placeholder="Enter your Roll Number" className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" required />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">Lab Name</label>
+                <select name="labId" value={selectedLab} onChange={(e) => setSelectedLab(e.target.value)} className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" required>
+                  <option value="">Select a Lab</option>
+                  {labs.length > 0 ? (
+                    labs.map((lab) => (
+                      <option key={lab.id} value={lab.id}>{lab.name}</option>
+                    ))
+                  ) : (
+                    <option disabled>Loading labs...</option>
+                  )}
+                </select>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">Lab ID</label>
+                <input type="text" name="labId" value={formData.labId} readOnly className="w-full px-4 py-3 border rounded-lg bg-gray-100 text-lg" />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">Servers Required</label>
+                <input type="number" name="serversRequired" value={formData.serversRequired} onChange={handleChange} placeholder={`Available: ${freeServers}`} className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" required />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">Processors Required</label>
+                <input type="number" name="processorsRequired" value={formData.processorsRequired} onChange={handleChange} placeholder="Enter number of processors" className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" required />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">RAM Required (in GB)</label>
+                <input type="number" name="ramRequired" value={formData.ramRequired} onChange={handleChange} placeholder="Enter RAM size" className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" required />
+              </div>
+            </div>
           </div>
 
-          {/* Lab ID (Autofilled) */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">
-              Lab ID
-            </label>
-            <input
-              type="text"
-              name="labId"
-              value={selectedLab}
-              readOnly
-              className="w-full px-4 py-2 border rounded-lg bg-gray-100"
-            />
-          </div>
-
-          {/* Servers Required */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">
-              Servers Required
-            </label>
-            <input
-              type="number"
-              name="servers"
-              placeholder="Enter number of servers"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          {/* Processors Required */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">
-              Processors Required
-            </label>
-            <input
-              type="number"
-              name="processors"
-              placeholder="Enter number of processors"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          {/* RAM Required */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">
-              RAM Required (in GB)
-            </label>
-            <input
-              type="number"
-              name="ram"
-              placeholder="Enter RAM size"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+          <div className="mt-6">
+            <button type="submit" className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg text-xl font-semibold hover:bg-blue-700 transition">
+              Request Lab Space
+            </button>
           </div>
         </form>
       </div>

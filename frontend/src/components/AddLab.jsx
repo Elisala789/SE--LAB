@@ -25,8 +25,8 @@ const AddLab = () => {
 
   return (
     <GeneralAdminLayout>
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-sky-100 to-sky-300">
-      <div className="bg-gradient-to-br from-sky-100 to-sky-300 shadow-lg rounded-lg p-8 max-w-md w-full">
+    <div className="flex items-center justify-center min-h-screen ">
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
         <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">Add New Lab</h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">

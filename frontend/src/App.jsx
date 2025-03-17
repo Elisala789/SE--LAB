@@ -13,6 +13,7 @@ import AddLabAdmin from "./components/AddLabAdmin";
 import ManageLabAdmins from "./components/ManageLabAdmins";
 import ViewLabs from "./components/ViewLabs";
 import RequestSpace from "./components/RequestSpace";
+import ViewBookings from "./components/ViewBookings";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/student-dashboard" element={<Dashboard1 />} />
         <Route path="/student-dashboard/view-all-labs" element={<ViewLabs />} />
         <Route path="/student-dashboard/request-space" element={<RequestSpace />} />
+        <Route path="/student-dashboard/view-my-bookings" element={<ViewBookings />} />
         <Route path="/faculty-dashboard" element={<Dashboard2 />} />
         <Route path="/generaladmin-dashboard" element={<Dashboard3 />} />
         <Route path="/researcher-dashboard" element={<Dashboard4 />} />
