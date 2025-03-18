@@ -69,7 +69,10 @@ public class SecurityConfig {
         if (email.equals("elisala_b220841cs@nitc.ac.in")) {
             return "http://localhost:5173/generaladmin-dashboard";
         } else if (email.equals("chitta_b220243cs@nitc.ac.in")) {
-            return "http://localhost:5173/labadmin-dashboard";
+            return "http://localhost:5173/supervisor-dashboard";
+        } 
+        else if (email.equals("samudrala_b221178cs@nitc.ac.in")) {
+            return "http://localhost:5173/student-dashboard";
         } 
         // Matches bXXXXXX<dept>@nitc.ac.in OR mXXXXXX<dept>@nitc.ac.in (Students)
         else if (email.matches(".*[bm]\\d{6}[a-zA-Z]+@nitc\\.ac\\.in")) {

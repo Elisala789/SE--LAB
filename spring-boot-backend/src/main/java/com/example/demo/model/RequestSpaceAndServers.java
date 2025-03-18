@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "requests")
@@ -98,4 +99,27 @@ public class RequestSpaceAndServers {
 	}
 
 	private int ramRequired;
+	
+	
+
+	@Column(nullable = false, updatable = false)
+	private LocalDateTime createdAt;
+
+	@PrePersist
+	protected void onCreate() {
+	    createdAt = LocalDateTime.now();
+	}
+
+	public LocalDateTime getCreatedAt() {
+	    return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+	    this.createdAt = createdAt;
+	}
+	
+	@OneToOne(mappedBy = "request", cascade = CascadeType.ALL)
+	private CheckStatus checkStatus;
+
+
 }
