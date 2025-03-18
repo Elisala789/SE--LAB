@@ -38,9 +38,13 @@ const Layout = ({ children }) => {
           >
             <FiCalendar /> View My Bookings
           </button>
+          <button
+            onClick={() => navigate("/student-dashboard/view-my-notifications")}
+            className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition"
+          >
+            <FiBell /> Notifications
+          </button>
           
-          
-          <NavItem to="/notifications" icon={<FiBell />} label="Notifications" />
           <button
             onClick={() => navigate("/")}
             className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition"

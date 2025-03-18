@@ -14,6 +14,8 @@ import ManageLabAdmins from "./components/ManageLabAdmins";
 import ViewLabs from "./components/ViewLabs";
 import RequestSpace from "./components/RequestSpace";
 import ViewBookings from "./components/ViewBookings";
+import ViewNotifications from "./components/ViewNotifications";
+import SupervisorDashboard from "./components/SupervisorDashboard";
 
 const App = () => {
   return (
@@ -28,10 +30,14 @@ const App = () => {
         <Route path="/student-dashboard/view-all-labs" element={<ViewLabs />} />
         <Route path="/student-dashboard/request-space" element={<RequestSpace />} />
         <Route path="/student-dashboard/view-my-bookings" element={<ViewBookings />} />
+        <Route path="/student-dashboard/view-my-notifications" element={<ViewNotifications />} />
+
         <Route path="/faculty-dashboard" element={<Dashboard2 />} />
         <Route path="/generaladmin-dashboard" element={<Dashboard3 />} />
         <Route path="/researcher-dashboard" element={<Dashboard4 />} />
         <Route path="/labadmin-dashboard" element={<Dashboard5 />} />
+        <Route path="/supervisor-dashboard" element={<SupervisorDashboard />} />
+
 
         {/* Lab Management (Only Accessible Inside GeneralAdmin) */}
         <Route path="/generaladmin-dashboard/add-lab" element={<AddLab />} />

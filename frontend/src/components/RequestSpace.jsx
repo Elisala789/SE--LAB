@@ -77,11 +77,19 @@ const RequestSpace = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
+      // First, submit the request
       const response = await axios.post("http://localhost:8081/api/auth/requests", formData);
+      const requestId = response.data.id; // Assuming the backend returns the request ID
+  
+      // Then, update check_status
+      await axios.post(`http://localhost:8081/api/auth/check_status/${requestId}`);
+  
       alert("Request submitted successfully!");
       navigate("/student-dashboard/view-my-bookings");
+  
+      // Reset form fields
       setFormData({
         name: "",
         email: "",
@@ -98,6 +106,7 @@ const RequestSpace = () => {
       alert("Failed to submit request. Please try again.");
     }
   };
+  
 
   return (
     <Layout>
