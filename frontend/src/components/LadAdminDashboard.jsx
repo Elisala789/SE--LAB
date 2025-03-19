@@ -1,8 +1,13 @@
 import React from 'react'
+import SupervisorLayout from "./SupervisorLayout";
+
 
 const LadAdminDashboard = () => {
   return (
-    <div>LadAdminDashboard</div>
+    <SupervisorLayout>
+    <div>LadAdminDashboard......///////</div>
+    </SupervisorLayout>
+
   )
 }
 

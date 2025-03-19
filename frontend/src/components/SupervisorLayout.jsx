@@ -14,10 +14,32 @@ const SupervisorLayout = ({ children }) => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6">
-          <NavItem to="/supervisor/dashboard" icon={<FiHome />} label="Dashboard" />
-          <NavItem to="/supervisor/pending" icon={<FiClipboard />} label="Pending" />
-          <NavItem to="/supervisor/verified" icon={<FiCheckSquare />} label="Verified" />
-          <NavItem to="/supervisor/forwarded" icon={<FiSend />} label="Forwarded" />
+         
+          <button
+                      onClick={() => navigate("/supervisor-dashboard")}
+                      className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition"
+                    >
+                      <FiHome /> DashBoard
+                    </button>
+          <button
+                      onClick={() => navigate("/supervisor-dashboard/pendings")}
+                      className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition"
+                    >
+                      <FiClipboard />Requests
+                    </button>
+                    <button
+                      onClick={() => navigate("/supervisor-dashboard/verified")}
+                      className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition"
+                    >
+                      <FiCheckSquare /> Verified
+                    </button>
+                    <button
+                      onClick={() => navigate("/supervisor-dashboard/forwards")}
+                      className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition"
+                    >
+                      <FiSend /> Forwarded
+                    </button>
+          
           <button onClick={() => navigate("/")} className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition">
             <FiLogOut /> Logout
           </button>

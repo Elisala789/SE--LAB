@@ -1,11 +1,9 @@
-// import React from 'react'
+import React from 'react'
 
-// const AAAA = () => {
-//   return (
-//     <div>AAAA</div>
-//   )
-// }
+const AAAA = () => {
+  return (
+    <div>AAAA</div>
+  )
+}
 
-// export default AAAA
-
-
+export default AAAA

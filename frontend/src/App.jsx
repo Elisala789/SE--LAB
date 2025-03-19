@@ -16,6 +16,9 @@ import RequestSpace from "./components/RequestSpace";
 import ViewBookings from "./components/ViewBookings";
 import ViewNotifications from "./components/ViewNotifications";
 import SupervisorDashboard from "./components/SupervisorDashboard";
+import Pendings from "./components/Pendings";
+import Verified from "./components/Verified";
+import Forwarded from "./components/Forwarded";
 
 const App = () => {
   return (
@@ -37,6 +40,9 @@ const App = () => {
         <Route path="/researcher-dashboard" element={<Dashboard4 />} />
         <Route path="/labadmin-dashboard" element={<Dashboard5 />} />
         <Route path="/supervisor-dashboard" element={<SupervisorDashboard />} />
+        <Route path="/supervisor-dashboard/pendings" element={< Pendings/>} />
+        <Route path="/supervisor-dashboard/verified" element={< Verified/>} />
+        <Route path="/supervisor-dashboard/forwards" element={< Forwarded/>} />
 
 
         {/* Lab Management (Only Accessible Inside GeneralAdmin) */}

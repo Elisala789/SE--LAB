@@ -16,7 +16,7 @@ const GeneralAdminLayout = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
       {/* Navbar */}
-      <nav className="bg-[#8facdb] text-[#0b0c0c] py-4 px-8 flex justify-between items-center shadow-md">
+      <nav className="bg-[#8facdb] text-[#0b0c0c] py-4 px- flex justify-between items-center shadow-md">
         <div className="flex items-center space-x-4">
           <User size={28} />
           <h2 className="text-2xl font-bold">General Admin</h2>

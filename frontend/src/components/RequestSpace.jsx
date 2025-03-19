@@ -9,6 +9,11 @@ const RequestSpace = () => {
   const [selectedLab, setSelectedLab] = useState("");
   const [servers, setServers] = useState([]);
   const [freeServers, setFreeServers] = useState(0);
+  const [freeProcessors, setFreeProcessors] = useState(0);
+  const [processors, setProcessors] = useState([]);
+
+
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,7 +37,7 @@ const RequestSpace = () => {
     };
     fetchLabs();
   }, []);
-
+///////fetch servers
   useEffect(() => {
     const fetchServers = async () => {
       try {
@@ -44,7 +49,19 @@ const RequestSpace = () => {
     };
     fetchServers();
   }, []);
-
+///fetch processors
+  useEffect(() => {
+    const fetchProcessors = async () => {
+      try {
+        const response = await axios.get("http://localhost:8081/api/auth/processors");
+        setProcessors(response.data);
+      } catch (err) {
+        console.error("Failed to fetch processors:", err);
+      }
+    };
+    fetchProcessors();
+  }, []);
+///////
   useEffect(() => {
     if (selectedLab) {
       const selectedLabObj = labs.find((lab) => lab.id === parseInt(selectedLab));
@@ -57,15 +74,19 @@ const RequestSpace = () => {
       const filteredServers = servers.filter((server) => server.lab.id === parseInt(selectedLab));
       const totalFreeServers = filteredServers.reduce((sum, server) => sum + server.free, 0);
       setFreeServers(totalFreeServers);
+      const filteredProcessors = processors.filter((processor) => processor.lab.id === parseInt(selectedLab));
+    const totalFreeProcessors = filteredProcessors.reduce((sum, processor) => sum + processor.free, 0);
+    setFreeProcessors(totalFreeProcessors);
     } else {
       setFreeServers(0);
+      setFreeProcessors(0);
       setFormData((prev) => ({
         ...prev,
         labName: "",
         labId: "",
       }));
     }
-  }, [selectedLab, labs, servers]);
+  }, [selectedLab, labs, servers, processors]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -161,12 +182,12 @@ const RequestSpace = () => {
 
               <div>
                 <label className="block text-gray-700 font-bold mb-2">Processors Required</label>
-                <input type="number" name="processorsRequired" value={formData.processorsRequired} onChange={handleChange} placeholder="Enter number of processors" className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" required />
+                <input type="number" name="processorsRequired" value={formData.processorsRequired} onChange={handleChange} placeholder={`Available: ${freeProcessors}`} className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" required />
               </div>
 
               <div>
                 <label className="block text-gray-700 font-bold mb-2">RAM Required (in GB)</label>
-                <input type="number" name="ramRequired" value={formData.ramRequired} onChange={handleChange} placeholder="Enter RAM size" className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" required />
+                <input type="number" name="ramRequired" value={formData.ramRequired} onChange={handleChange} placeholder="Enter RAM size (32 GB)" className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" required />
               </div>
             </div>
           </div>
