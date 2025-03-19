@@ -9,4 +9,8 @@ import java.util.Optional;
 @Repository
 public interface CheckStatusRepository extends JpaRepository<CheckStatus, Long> {
     Optional<CheckStatus> findByRequestId(Long requestId);
+    int countBySupervisorVerifiedFalse();  // Fix for counting pending correctly
+    int countBySupervisorVerifiedTrue();
+    int countByForwardedToLabAdminTrue();
 }
+

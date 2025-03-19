@@ -118,8 +118,9 @@ public class RequestSpaceAndServers {
 	    this.createdAt = createdAt;
 	}
 	
-	@OneToOne(mappedBy = "request", cascade = CascadeType.ALL)
-	private CheckStatus checkStatus;
+	
+	
+
 
 
 }

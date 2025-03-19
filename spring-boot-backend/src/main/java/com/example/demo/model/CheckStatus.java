@@ -31,7 +31,10 @@ public class CheckStatus {
     public void setId(Long id) { this.id = id; }
 
     public RequestSpaceAndServers getRequest() { return request; }
-    public void setRequest(RequestSpaceAndServers request) { this.request = request; }
+    public void setRequest(RequestSpaceAndServers request) {
+        this.request = request;
+        
+    }
 
     public boolean isRequestSentToSupervisor() { return requestSentToSupervisor; }
     public void setRequestSentToSupervisor(boolean requestSentToSupervisor) { this.requestSentToSupervisor = requestSentToSupervisor; }

@@ -51,5 +51,15 @@ public class CheckStatusController {
         boolean updated = checkStatusService.updateCheckStatus(requestId, supervisorVerified, forwardedToLabAdmin, adminStatus);
         return updated ? ResponseEntity.ok("Check status updated successfully.") : ResponseEntity.notFound().build();
     }
+    
+    @GetMapping
+    public ResponseEntity<?> getStatusCounts() {
+        return ResponseEntity.ok(checkStatusService.getStatusCounts());
+    }
+
+
+    
+    
+    
 
 }

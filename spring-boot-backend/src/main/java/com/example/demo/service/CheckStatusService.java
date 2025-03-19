@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
 import java.util.Optional;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,5 +64,19 @@ public class CheckStatusService {
         checkStatusRepository.save(checkStatus);
         return true;
     }
+    public Map<String, Integer> getStatusCounts() {
+        int pending = checkStatusRepository.countBySupervisorVerifiedFalse(); // Fix: count false, not null
+        int verified = checkStatusRepository.countBySupervisorVerifiedTrue();
+        int forwarded = checkStatusRepository.countByForwardedToLabAdminTrue();
 
+        Map<String, Integer> statusCounts = new HashMap<>();
+        statusCounts.put("pending", pending);
+        statusCounts.put("verified", verified);
+        statusCounts.put("forwarded", forwarded);
+
+        return statusCounts;
+    }
+
+    
+   
 }
