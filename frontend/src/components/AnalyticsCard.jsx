@@ -49,48 +49,14 @@ const AnalyticsCard = ({
   const points = trend.map((point, index) => {
     const x = (index / (trend.length - 1)) * width;
     const y = height - ((point - minValue) / range) * height;
-    return ${x},${y};
+    return ;
   }).join(' ');
 
   return (
-    <div className={p-6 rounded-xl subtle-border bg-card card-hover animate-scale-in ${className}}>
-      <div className="flex items-start justify-between mb-4">
-        <div className="p-2 rounded-lg bg-primary/10">
-          {icon}
-        </div>
-        
-        <svg width={width} height={height} className="text-primary/50">
-          <polyline
-            points={points}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </div>
-      
-      <div className="space-y-1">
-        <div className="text-sm font-medium text-muted-foreground">{title}</div>
-        <div className="text-2xl font-semibold">{value}</div>
-        
-        {change && (
-          <div className="flex items-center gap-1 text-xs">
-            <div className={flex items-center ${getChangeColor()}}>
-              {getChangeIcon()}
-              <span className="ml-1">{Math.abs(change.value)}%</span>
-            </div>
-            <span className="text-muted-foreground">vs last period</span>
-          </div>
-        )}
-        
-        {description && (
-          <p className="text-sm text-muted-foreground mt-2">{description}</p>
-        )}
-      </div>
-    </div>
-  );
+    <div></div>
+  )
 };
 
 export default AnalyticsCard;
+
+
