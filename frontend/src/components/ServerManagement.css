@@ -1,0 +1,56 @@
+.server-management {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.server-form {
+  margin-bottom: 20px;
+}
+
+.server-form input,
+.server-form select {
+  margin-right: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.server-form button {
+  padding: 8px 12px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.server-form button:hover {
+  background: #0056b3;
+}
+
+.server-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.server-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.server-list li button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.server-list li button:hover {
+  background: #c82333;
+}
