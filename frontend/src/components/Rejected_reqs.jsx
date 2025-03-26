@@ -1,11 +1,10 @@
 
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import LabAdminLayout from './LabAdminLayout'
 import { ChevronDown, ChevronUp } from "lucide-react";
 
-const Approved = () => {
+const Rejected_reqs = () => {
   const [requests, setRequests] = useState([]);
   const [selectedRequest, setSelectedRequest] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
@@ -29,7 +28,7 @@ const Approved = () => {
           try {
             const statusResponse = await axios.get(`http://localhost:8081/api/auth/check_status/${req.id}`);
             const { requestSentToSupervisor, supervisorVerified, forwardedToLabAdmin, adminStatus } = statusResponse.data;
-            if (requestSentToSupervisor && supervisorVerified && forwardedToLabAdmin && adminStatus === "Pending") {
+            if (requestSentToSupervisor && supervisorVerified && forwardedToLabAdmin && adminStatus === "Rejected") {
               return req;
             }
             return null;
@@ -109,10 +108,10 @@ const Approved = () => {
                     <span className="ml-16">Lab ID: {req.labId}</span> <span className="ml-4">Lab Name: {req.labName}</span>
                   </p>
                   <button
-                    onClick={() => checkStatus(req.id, "approve")}
-                    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+                   // onClick={() => checkStatus(req.id, "approve")}
+                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md"
                   >
-                    Approve
+                    Rejected
                   </button>
                 </div>
                 {expandedRequest === req.id && (
@@ -167,4 +166,4 @@ const Approved = () => {
     </LabAdminLayout>
   );
 };
-export default Approved;
+export default Rejected_reqs;

@@ -1,7 +1,8 @@
 
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FiMenu, FiX, FiHome, FiCalendar, FiBell, FiLogOut, FiBookmark, FiGitlab, FiMonitor, FiGitPullRequest } from "react-icons/fi";
+import { FiMenu, FiX, FiHome, FiCalendar, FiBell, FiLogOut, FiBookmark, FiGitlab, FiMonitor, FiGitPullRequest, FiServer, FiActivity } from "react-icons/fi";
+import { FileWarningIcon } from "lucide-react";
 
 const LabAdminLayout = ({ children }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,12 +23,11 @@ const LabAdminLayout = ({ children }) => {
             <FiHome /> DashBoard
           </button>
           <button
-            onClick={() => navigate("/admin-dashboard/view-all-labs")}
+            onClick={() => navigate("/labadmin-dashboard/view-server-usagee")}
             className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition"
           >
-            <FiGitlab /> All Labs
+            <FiServer /> Server Usage
           </button>
-
           
   
           <button
@@ -36,10 +36,22 @@ const LabAdminLayout = ({ children }) => {
           >
             <FiGitPullRequest /> View-Requests
           </button>
+          <button
+            onClick={() => navigate("/labadmin-dashboard/view-all-approved-requests")}
+            className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition"
+          >
+            <FiActivity /> Approved-Requests
+          </button>
+          <button
+            onClick={() => navigate("/labadmin-dashboard/view-all-rejected-requests")}
+            className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition"
+          >
+            <FileWarningIcon /> Rejected-Requests
+          </button>
 
           <button
             onClick={() => navigate("/")}
-            className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition"
+            className="flex items-center gap-2 text-lg hover:bg-red-500 rounded-xl hover:text-[#0e0e0f] transition"
           >
             <FiLogOut /> Logout
           </button>

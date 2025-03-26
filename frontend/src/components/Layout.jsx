@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F1F5F9]">
+    <div className="min-h-screen flex flex-col bg-gray">
       {/* Navbar */}
       <nav className="bg-[#8facdb] text-[#0b0c0c] p-4 flex items-center justify-between shadow-md">
         <h1 className="text-2xl font-semibold">Student Dashboard</h1>

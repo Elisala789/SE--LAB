@@ -21,6 +21,10 @@ import Verified from "./components/Verified";
 import Forwarded from "./components/Forwarded";
 import GrafanaDashboard from "./components/GrafanaDashboard";
 import Approved from "./components/Approved";
+import Approved_reqs from "./components/Approved_reqs";
+import Rejected_reqs from "./components/Rejected_reqs";
+import GrafanaDashboard2 from "./components/GrafanaDashboard2";
+import ServerUsage from "./components/ServerUsage";
 
 const App = () => {
   return (
@@ -45,11 +49,18 @@ const App = () => {
         <Route path="/supervisor-dashboard/verified" element={< Verified/>} />
         <Route path="/supervisor-dashboard/forwards" element={< Forwarded/>} />
 
+        
         <Route path="/stu" element={<GrafanaDashboard />} />
+        <Route path="/labadmin-dashboard/view-server-usage" element={<GrafanaDashboard2 />} />
+
 
 
         <Route path="/labadmin-dashboard" element={<Dashboard5 />} />
         <Route path="/labadmin-dashboard/view-all-recieved-requests" element={<Approved />} />
+        <Route path="/labadmin-dashboard/view-all-approved-requests" element={<Approved_reqs />} />
+        <Route path="/labadmin-dashboard/view-all-rejected-requests" element={<Rejected_reqs />} />
+        <Route path="/labadmin-dashboard/view-server-usagee" element={<ServerUsage />} />
+
 
 
 

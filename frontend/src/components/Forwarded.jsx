@@ -129,12 +129,12 @@ const Forwarded = () => {
                   </p>
 
 
-                  {/* <button
-                            onClick={() => checkStatus(req.id, "forward")}
+                  <button
+                            //onClick={() => checkStatus(req.id, "forward")}
                             className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md"
                           >
-                            Forward
-                          </button> */}
+                            Forwarded
+                          </button>
                 </div>
 
                 {expandedRequest === req.id && (
