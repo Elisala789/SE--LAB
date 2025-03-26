@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FiMenu, FiX, FiHome, FiCalendar, FiBell, FiLogOut, FiBookmark, FiGitlab } from "react-icons/fi";
+import { FiMenu, FiX, FiHome, FiCalendar, FiBell, FiLogOut, FiBookmark, FiGitlab, FiMonitor } from "react-icons/fi";
 
 const Layout = ({ children }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -43,6 +43,12 @@ const Layout = ({ children }) => {
             className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition"
           >
             <FiBell /> Notifications
+          </button>
+          <button
+            onClick={() => navigate("/stu")}
+            className="flex items-center gap-2 text-lg hover:text-[#0e0e0f] transition"
+          >
+            <FiMonitor /> Server Monitoring
           </button>
           
           <button

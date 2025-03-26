@@ -19,6 +19,7 @@ import SupervisorDashboard from "./components/SupervisorDashboard";
 import Pendings from "./components/Pendings";
 import Verified from "./components/Verified";
 import Forwarded from "./components/Forwarded";
+import GrafanaDashboard from "./components/GrafanaDashboard";
 
 const App = () => {
   return (
@@ -43,6 +44,10 @@ const App = () => {
         <Route path="/supervisor-dashboard/pendings" element={< Pendings/>} />
         <Route path="/supervisor-dashboard/verified" element={< Verified/>} />
         <Route path="/supervisor-dashboard/forwards" element={< Forwarded/>} />
+
+        <Route path="/stu" element={<GrafanaDashboard />} />
+
+
 
 
         {/* Lab Management (Only Accessible Inside GeneralAdmin) */}

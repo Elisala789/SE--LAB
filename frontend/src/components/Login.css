@@ -21,7 +21,7 @@
 /* 25% More Floating Effect */
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-100.5px); }  /* Increased from -10px to -12.5px */
+    50% { transform: translateY(-10.5px); }  /* Increased from -10px to -12.5px */
     100% { transform: translateY(0px); }
 }
 
