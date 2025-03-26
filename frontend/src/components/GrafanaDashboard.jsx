@@ -39,7 +39,14 @@ const GrafanaDashboard = () => {
           </h3>
           <iframe src="http://localhost:3000/d-solo/X034JGT7Gz/springboot-apm-dashboard?orgId=1&timezone=browser&var-application=Server%20Monitoring%20&var-instance=$__all&var-hikaricp=HikariPool-1&var-memory_pool_heap=$__all&var-memory_pool_nonheap=$__all&theme=light&panelId=60&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
         </div>
-    
+  
+        {/* Thread Activity */}
+        <div>
+          <h3 className="text-xl font-semibold text-white mb-2">
+            Process Open Files
+          </h3>
+          <iframe src="http://localhost:3000/d-solo/X034JGT7Gz/springboot-apm-dashboard?orgId=1&timezone=browser&var-application=Server%20Monitoring%20&var-instance=$__all&var-hikaricp=HikariPool-1&var-memory_pool_heap=$__all&var-memory_pool_nonheap=$__all&theme=light&panelId=66&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+        </div>
     
     
     
