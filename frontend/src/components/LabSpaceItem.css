@@ -1,0 +1,20 @@
+.lab-space-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.lab-space-item button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.lab-space-item button:hover {
+  background: #0056b3;
