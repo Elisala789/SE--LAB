@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import './ServerItem.css';
 
-const ServerItem = () => {
+const ServerItem = ({ server, onEdit, onDelete }) => {
   return (
-    <div>ServerItem</div>
-  )
-}
+    <li className="server-item">
+      <span>{server.serverName} - Status: {server.serverStatus}</span>
+      <button onClick={() => onEdit(server)}>Edit</button>
+      <button onClick={() => onDelete(server.serverName)}>Delete</button>
+    </li>
+  );
+};
 
 export default ServerItem
