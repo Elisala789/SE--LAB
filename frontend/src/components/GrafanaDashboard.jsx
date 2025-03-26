@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
+import Layout from "./Layout";
 
 const GrafanaDashboard = () => {
   return (
-    <div>GrafanaDashboard</div>
-  )
-}
+   
+  );
+};
 
-export default GrafanaDashboard
+export default GrafanaDashboard;
+
