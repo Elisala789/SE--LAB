@@ -1,0 +1,65 @@
+.analytics-chart-container {
+    background-color: #f9f9f9; /* Light background for the chart area */
+    border: 1px solid #e0e0e0; /* Light border around the chart */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the container */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px 0; /* Margin to separate from other components */
+}
+
+.analytics-chart-container h3 {
+    font-size: 24px; /* Larger font size for the heading */
+    color: #333; /* Dark color for the heading */
+    margin-bottom: 15px; /* Space below the heading */
+    text-align: center; /* Center the heading */
+}
+
+.chart-placeholder {
+    background-color: #e0e0e0; /* Placeholder background color */
+    border: 1px dashed #bbb; /* Dashed border for the placeholder */
+    border-radius: 4px; /* Rounded corners for the placeholder */
+    height: 300px; /* Fixed height for the chart area */
+    display: flex; /* Flexbox for centering content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    font-size: 18px; /* Font size for the placeholder text */
+    color: #666; /* Gray color for the placeholder text */
+}
+
+.chart-description {
+    font-size: 16px; /* Font size for the description */
+    color: #555; /* Darker gray for the description text */
+    text-align: center; /* Center the description text */
+    margin-top: 10px; /* Space above the description */
+}
+
+.chart-footer {
+    margin-top: 20px; /* Space above the footer */
+    text-align: center; /* Center the footer text */
+    font-size: 14px; /* Smaller font size for footer */
+    color: #888; /* Light gray for footer text */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .analytics-chart-container {
+        padding: 15px; /* Reduce padding on smaller screens */
+    }
+
+    .analytics-chart-container h3 {
+        font-size: 20px; /* Smaller heading on mobile */
+    }
+
+    .chart-placeholder {
+        height: 200px; /* Reduce height of placeholder on mobile */
+        font-size: 16px; /* Smaller font size for placeholder text */
+    }
+
+    .chart-description {
+        font-size: 14px; /* Smaller font size for description on mobile */
+    }
+
+    .chart-footer {
+        font-size: 12px; /* Smaller footer text on mobile */
+    }
+}
