@@ -105,6 +105,15 @@ const GrafanaDashboard = () => {
         </div>
         <hr class="border-t-4 border-gray-600"></hr>
           
+    {/* 5....... */}
+        <div  className="grid grid-cols-2 gap-6 w-full max-w-screen-xl mt-3">
+        <div>
+          <h3 className="text-xl font-semibold text-gray-700 mb-2">
+            JVM Statistics - Memory
+          </h3>
+    
+          <iframe src="http://localhost:3000/d-solo/X034JGT7Gz/springboot-apm-dashboard?orgId=1&timezone=browser&var-application=Server%20Monitoring%20&var-instance=$__all&var-hikaricp=HikariPool-1&var-memory_pool_heap=$__all&var-memory_pool_nonheap=$__all&theme=light&panelId=68&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+        </div>
     
    
   );
