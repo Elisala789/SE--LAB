@@ -175,7 +175,7 @@ const RequestSpace = () => {
                 <input type="text" name="labId" value={formData.labId} readOnly className="w-full px-4 py-3 border rounded-lg bg-gray-100 text-lg" />
               </div>
 
-              <div>
+              {/* <div>
                 <label className="block text-gray-700 font-bold mb-2">Servers Required</label>
                 <input type="number" name="serversRequired" value={formData.serversRequired} onChange={handleChange} placeholder={`Available: ${freeServers}`} className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" required />
               </div>
@@ -188,7 +188,7 @@ const RequestSpace = () => {
               <div>
                 <label className="block text-gray-700 font-bold mb-2">RAM Required (in GB)</label>
                 <input type="number" name="ramRequired" value={formData.ramRequired} onChange={handleChange} placeholder="Enter RAM size (32 GB)" className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" required />
-              </div>
+              </div> */}
             </div>
           </div>
 

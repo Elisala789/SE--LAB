@@ -14,7 +14,7 @@ const GrafanaDashboard2 = () => {
                   >
                     Back
                   </button>
-                  <div>Aneesh Samudrala BDL lab usage</div>
+                  {/* <div>Aneesh Samudrala BDL lab usage</div> */}
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6">
        {/* 1........ */}
       {/* Grid Layout for Server Monitoring Panels */}

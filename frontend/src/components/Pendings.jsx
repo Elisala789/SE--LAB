@@ -141,9 +141,9 @@ const Pendings = () => {
                     <p><strong>Email:</strong> {req.email}</p>
                     <p><strong>Roll Number:</strong> {req.rollNumber}</p>
                     <p><strong>Lab Name:</strong> {req.labName}</p>
-                    <p><strong>Processors Required:</strong> {req.processorsRequired}</p>
+                    {/* <p><strong>Processors Required:</strong> {req.processorsRequired}</p>
                     <p><strong>RAM Required:</strong> {req.ramRequired} GB</p>
-                    <p><strong>Servers Required:</strong> {req.serversRequired}</p>
+                    <p><strong>Servers Required:</strong> {req.serversRequired}</p> */}
                     <p><strong>Requested At:</strong> {new Date(req.createdAt).toLocaleString()}</p>
                   </div>
                 )}

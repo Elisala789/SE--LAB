@@ -63,7 +63,7 @@ const ViewNotifications = () => {
                 <div className="ml-4">
                   <p className="text-lg font-semibold text-gray-800">{notif.name}</p>
                   <p className="text-gray-600 text-sm">
-                    Requested {notif.serversRequired} servers and {notif.processorsRequired} processors in {notif.labName}
+                    Requested LabSpace in {notif.labName}
                   </p>
                   <p className="text-gray-500 text-xs">{new Date(notif.createdAt).toLocaleString()}</p>
                 </div>
@@ -73,6 +73,7 @@ const ViewNotifications = () => {
                 >
                   Check Status
                 </button>
+                {/*  */}
               </div>
             ))}
           </div>
