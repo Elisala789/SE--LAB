@@ -20,6 +20,7 @@ import Pendings from "./components/Pendings";
 import Verified from "./components/Verified";
 import Forwarded from "./components/Forwarded";
 import GrafanaDashboard from "./components/GrafanaDashboard";
+import Approved from "./components/Approved";
 
 const App = () => {
   return (
@@ -39,13 +40,16 @@ const App = () => {
         <Route path="/faculty-dashboard" element={<Dashboard2 />} />
         <Route path="/generaladmin-dashboard" element={<Dashboard3 />} />
         <Route path="/researcher-dashboard" element={<Dashboard4 />} />
-        <Route path="/labadmin-dashboard" element={<Dashboard5 />} />
         <Route path="/supervisor-dashboard" element={<SupervisorDashboard />} />
         <Route path="/supervisor-dashboard/pendings" element={< Pendings/>} />
         <Route path="/supervisor-dashboard/verified" element={< Verified/>} />
         <Route path="/supervisor-dashboard/forwards" element={< Forwarded/>} />
 
         <Route path="/stu" element={<GrafanaDashboard />} />
+
+
+        <Route path="/labadmin-dashboard" element={<Dashboard5 />} />
+        <Route path="/labadmin-dashboard/view-all-recieved-requests" element={<Approved />} />
 
 
 

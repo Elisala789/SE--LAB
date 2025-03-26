@@ -1,13 +1,12 @@
 import React from 'react'
-import SupervisorLayout from "./SupervisorLayout";
-
+import LabAdminLayout from './LabAdminLayout'
 
 const LadAdminDashboard = () => {
   return (
-    <SupervisorLayout>
-    <div>LadAdminDashboard......///////</div>
-    </SupervisorLayout>
+    <LabAdminLayout>
 
+    <div>LadAdminDashboard</div>
+    </LabAdminLayout>
   )
 }
 
