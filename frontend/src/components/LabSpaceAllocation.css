@@ -1,0 +1,55 @@
+.lab-space-allocation {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.allocation-form {
+  margin-bottom: 20px;
+}
+
+.allocation-form input {
+  margin-right: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.allocation-form button {
+  padding: 8px 12px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.allocation-form button:hover {
+  background: #0056b3;
+}
+
+.allocated-spaces ul {
+  list-style: none;
+  padding: 0;
+}
+
+.allocated-spaces li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.allocated-spaces li button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.allocated-spaces li button:hover {
+  background: #c82333;
+}
