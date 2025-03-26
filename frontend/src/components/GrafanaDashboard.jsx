@@ -180,6 +180,8 @@ const GrafanaDashboard = () => {
       </div>
       
    
+    </div>
+    </Layout>
   );
 };
 
