@@ -79,6 +79,14 @@ const GrafanaDashboard = () => {
           <iframe src="http://localhost:3000/d-solo/X034JGT7Gz/springboot-apm-dashboard?orgId=1&timezone=browser&var-application=Server%20Monitoring%20&var-instance=$__all&var-hikaricp=HikariPool-1&var-memory_pool_heap=$__all&var-memory_pool_nonheap=$__all&theme=light&panelId=46&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
         </div>
     
+        <div>
+          <h3 className="text-xl font-semibold text-white mb-2">
+            HikariCP Statistics - GC
+          </h3>
+          <iframe src="http://localhost:3000/d-solo/X034JGT7Gz/springboot-apm-dashboard?orgId=1&timezone=browser&var-application=Server%20Monitoring%20&var-instance=$__all&var-hikaricp=HikariPool-1&var-memory_pool_heap=$__all&var-memory_pool_nonheap=$__all&theme=light&panelId=36&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+        </div>
+      </div>
+      <hr class="border-t-4 border-gray-600"></hr>
     
    
   );
