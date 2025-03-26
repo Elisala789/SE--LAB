@@ -164,6 +164,20 @@ const GrafanaDashboard = () => {
       </div>
     
 
+      <hr class="border-t-4 border-gray-600"></hr>
+    
+    
+      {/* 7....... */}
+    
+      <div  className="grid grid-cols-2 gap-6 w-full max-w-screen-xl mt-3">
+       
+        <div>
+          <h3 className="text-xl font-semibold text-gray-700 mb-2">
+            Uptime & Availability
+          </h3>
+          <iframe src="http://localhost:3000/d-solo/fegwu8rwnyn0gc/spring-boot1?orgId=1&timezone=browser&refresh=5s&theme=light&panelId=3&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+        </div>
+      </div>
       
    
   );
