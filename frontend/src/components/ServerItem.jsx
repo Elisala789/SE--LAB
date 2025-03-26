@@ -11,4 +11,4 @@ const ServerItem = ({ server, onEdit, onDelete }) => {
   );
 };
 
-export default ServerItem
+export default ServerItem;
