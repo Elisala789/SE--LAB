@@ -23,8 +23,9 @@ const GrafanaDashboard = () => {
         </div>
       </div>
     
+<hr className="border-t-4 border-gray-600 my-6 w-full" />
     
-      <hr class="border-t-4 border-gray-600"></hr>
+
     <div className="grid grid-cols-2 gap-6 w-full max-w-screen-xl mt-3 ">
           {/* JDBC Connections */}
         <div>
@@ -61,8 +62,14 @@ const GrafanaDashboard = () => {
           <iframe src="http://localhost:3000/d-solo/X034JGT7Gz/springboot-apm-dashboard?orgId=1&timezone=browser&var-application=Server%20Monitoring%20&var-instance=$__all&var-hikaricp=HikariPool-1&var-memory_pool_heap=$__all&var-memory_pool_nonheap=$__all&theme=light&panelId=96&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
         </div>
         </div>
-        <hr class="border-t-4 border-gray-600"></hr>
+        <hr className="border-t-4 border-gray-600 my-6 w-full" />
+
+
+
        <div className="grid grid-cols-2 gap-6 w-full max-w-screen-xl mt-3 ">
+    
+
+
     
         <div>
           <h3 className="text-xl font-semibold text-gray-700 mb-2">
@@ -86,7 +93,10 @@ const GrafanaDashboard = () => {
           <iframe src="http://localhost:3000/d-solo/X034JGT7Gz/springboot-apm-dashboard?orgId=1&timezone=browser&var-application=Server%20Monitoring%20&var-instance=$__all&var-hikaricp=HikariPool-1&var-memory_pool_heap=$__all&var-memory_pool_nonheap=$__all&theme=light&panelId=36&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
         </div>
       </div>
-      <hr class="border-t-4 border-gray-600"></hr>
+      
+
+<hr className="border-t-4 border-gray-600 my-6 w-full" />
+
         <div className="grid grid-cols-2 gap-6 w-full max-w-screen-xl mt-3">
         
         <div>
@@ -103,7 +113,9 @@ const GrafanaDashboard = () => {
           <iframe src="http://localhost:3000/d-solo/fegwu8rwnyn0gc/spring-boot1?orgId=1&timezone=browser&refresh=5s&theme=light&panelId=1&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
         </div>
         </div>
-        <hr class="border-t-4 border-gray-600"></hr>
+       
+<hr className="border-t-4 border-gray-600 my-6 w-full" />
+
           
     {/* 5....... */}
         <div  className="grid grid-cols-2 gap-6 w-full max-w-screen-xl mt-3">
@@ -123,7 +135,8 @@ const GrafanaDashboard = () => {
     
        
       </div>
-      <hr class="border-t-4 border-gray-600"></hr>
+     
+      <hr className="border-t-4 border-gray-600 my-6 w-full" />
 
       
     
@@ -164,7 +177,8 @@ const GrafanaDashboard = () => {
       </div>
     
 
-      <hr class="border-t-4 border-gray-600"></hr>
+      <hr className="border-t-4 border-gray-600 my-6 w-full" />
+
     
     
       {/* 7....... */}
@@ -186,4 +200,7 @@ const GrafanaDashboard = () => {
 };
 
 export default GrafanaDashboard;
+
+
+
 
