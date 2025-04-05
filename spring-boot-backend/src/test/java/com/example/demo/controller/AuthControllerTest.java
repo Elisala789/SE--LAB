@@ -128,6 +128,23 @@ class AuthControllerTest {
                 .andExpect(jsonPath("$.role").value("GENERALADMIN"))
                 .andExpect(jsonPath("$.message").value("Login Successful"));
     }
+    @Test
+    void testUnknownEmailLoginForbidden() throws Exception {
+        // Arrange
+        User user = new User();
+        user.setEmail("random.user@gmail.com");
+        user.setPassword("wrongpassword");
+
+        when(userService.authenticate(user.getEmail(), user.getPassword()))
+                .thenReturn(Optional.empty());
+
+        // Act & Assert
+        mockMvc.perform(post("/api/auth/login")
+                        .contentType(APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(user)))
+                .andExpect(status().isForbidden());
+    }
+
 
 
 
