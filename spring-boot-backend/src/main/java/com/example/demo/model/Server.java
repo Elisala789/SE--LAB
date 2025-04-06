@@ -1,12 +1,8 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
-import lombok.*;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "servers_table")
 public class Server {
 
@@ -20,29 +16,48 @@ public class Server {
 
     private int allocated;
     private int free;
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public Lab getLab() {
-		return lab;
-	}
-	public void setLab(Lab lab) {
-		this.lab = lab;
-	}
-	public int getAllocated() {
-		return allocated;
-	}
-	public void setAllocated(int allocated) {
-		this.allocated = allocated;
-	}
-	public int getFree() {
-		return free;
-	}
-	public void setFree(int free) {
-		this.free = free;
-	}
-    
+
+    // ✅ No-argument constructor
+    public Server() {}
+
+    // ✅ All-argument constructor
+    public Server(Long id, Lab lab, int allocated, int free) {
+        this.id = id;
+        this.lab = lab;
+        this.allocated = allocated;
+        this.free = free;
+    }
+
+    // ✅ Getters and setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Lab getLab() {
+        return lab;
+    }
+
+    public void setLab(Lab lab) {
+        this.lab = lab;
+    }
+
+    public int getAllocated() {
+        return allocated;
+    }
+
+    public void setAllocated(int allocated) {
+        this.allocated = allocated;
+    }
+
+    public int getFree() {
+        return free;
+    }
+
+    public void setFree(int free) {
+        this.free = free;
+    }
 }

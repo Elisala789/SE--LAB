@@ -11,9 +11,11 @@ import java.util.Optional;
 @Service
 public class ServerService {
 
-    @Autowired
-    private ServerRepository serverRepository;
+    private final ServerRepository serverRepository;
 
+    public ServerService(ServerRepository serverRepository) {
+        this.serverRepository = serverRepository;
+    }
     public List<Server> getAllServers() {
         return serverRepository.findAll();
     }
