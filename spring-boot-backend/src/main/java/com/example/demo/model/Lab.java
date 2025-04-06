@@ -10,6 +10,10 @@ import lombok.*;
 @Table(name = "labs")
 
 public class Lab {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "lab_id")
     private Long id;
     private String name;
     private int servers;
