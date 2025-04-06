@@ -20,7 +20,7 @@ public class CheckStatusService {
     @Autowired
     private RequestSpaceAndServersRepository requestRepository;
 
-    // ✅ Create or update check status (prevents duplicate entries)
+    //  Create or update check status (prevents duplicate entries)
     public boolean createOrUpdateCheckStatus(Long requestId) {
         Optional<CheckStatus> existingStatus = checkStatusRepository.findByRequestId(requestId);
         
